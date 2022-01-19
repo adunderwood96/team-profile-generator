@@ -1,3 +1,4 @@
+// required packages/files
 const inquirer = require("inquirer");
 
 const Employee = require("./lib/Employee");
@@ -135,7 +136,7 @@ function addEmployee() {
 // write data to html 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, generateHTML(data),
-        (err) => err ? console.error(err) : console.log("\nYour Team HTML has been created.")
+        (err) => err ? console.error(err) : console.log("\nYour Team HTML has been created in the /dist folder.")
     );
 }
 
