@@ -11,8 +11,8 @@ const fs = require("fs");
 
 const team = [];
 
+// generalized questions for each employee 
 function createTeam() {
-
     inquirer.prompt([
         {
             type: "input",
@@ -48,7 +48,7 @@ function createTeam() {
 
 }
 
-// add manager as employee
+// add manager as employee (question prompts regarding manager)
 function addManager() {
 
     inquirer.prompt([
@@ -82,7 +82,7 @@ function addManager() {
         })
 }
 
-// add engineer as employee 
+// add engineer as employee (add github for role)
 function addEngineer(name, email, id) {
     inquirer.prompt([
         {
@@ -98,7 +98,7 @@ function addEngineer(name, email, id) {
         })
 }
 
-// add intern as employee 
+// add intern as employee (add school for role)
 function addIntern(name, email, id) {
     inquirer.prompt([
         {
@@ -135,7 +135,7 @@ function addEmployee() {
 // write data to html 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, generateHTML(data),
-        (err) => err ? console.error(err) : console.log("\nYour HTML has been created.")
+        (err) => err ? console.error(err) : console.log("\nYour Team HTML has been created.")
     );
 }
 

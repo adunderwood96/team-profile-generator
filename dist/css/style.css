@@ -1,11 +1,12 @@
 body {
-    background-color: #7a99c4;
-    color: #4c4c4f;
+    background-image: url('assets/bkg.jpg');
+    background-size: auto;
+    color: #7878d1;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
 }
 
 .team-heading {
-    color: #0c3a79;
+    color: #2fb88a;
     background-color: rgba(122, 153, 196, 0.85);
 }
 
