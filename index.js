@@ -23,15 +23,16 @@ function createTeam() {
 
         {
             type: "input",
-            message: "Enter the Employee's Email: ",
-            name: "email"
+            message: "Enter the Employee's ID: ",
+            name: "id"
         },
 
         {
             type: "input",
-            message: "Enter the Employee's ID: ",
-            name: "id"
+            message: "Enter the Employee's Email: ",
+            name: "email"
         },
+
 
         {
             type: "list",
@@ -42,9 +43,9 @@ function createTeam() {
     ])
         .then(response => {
             if (response.role === "Engineer")
-                addEngineer(response.name, response.email, response.id);
+                addEngineer(response.name, response.id, response.email);
             else if (response.role === "Intern")
-                addIntern(response.name, response.email, response.id);
+                addIntern(response.name, response.id, response.email);
         });
 
 }
@@ -61,15 +62,16 @@ function addManager() {
 
         {
             type: "input",
-            message: "Enter the Manager's Email: ",
-            name: "email"
+            message: "Enter the Manager's ID: ",
+            name: "id"
         },
 
         {
             type: "input",
-            message: "Enter the Manager's ID: ",
-            name: "id"
+            message: "Enter the Manager's Email: ",
+            name: "email"
         },
+      
         {
             type: "input",
             name: "office",
@@ -77,14 +79,14 @@ function addManager() {
         }
     ])
         .then(response => {
-            const newManager = new Manager(response.name, response.email, response.id, response.office);
+            const newManager = new Manager(response.name, response.id, response.email, response.office);
             team.push(newManager);
             addEmployee();
         })
 }
 
 // add engineer as employee (add github for role)
-function addEngineer(name, email, id) {
+function addEngineer(name, id, email) {
     inquirer.prompt([
         {
             type: "input",
@@ -93,14 +95,14 @@ function addEngineer(name, email, id) {
         }
     ])
         .then(response => {
-            const newEngineer = new Engineer(name, email, id, response.github);
+            const newEngineer = new Engineer(name, id, email, response.github);
             team.push(newEngineer);
             addEmployee();
         })
 }
 
 // add intern as employee (add school for role)
-function addIntern(name, email, id) {
+function addIntern(name, id, email) {
     inquirer.prompt([
         {
             type: "input",
@@ -109,7 +111,7 @@ function addIntern(name, email, id) {
         }
     ])
         .then(response => {
-            const newIntern = new Intern(name, email, id, response.school);
+            const newIntern = new Intern(name, id, email, response.school);
             team.push(newIntern);
             addEmployee();
         })
